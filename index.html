@@ -152,7 +152,7 @@
         <div id="unity-progress-bar">
         </div>
     </div>
-    <script src="Build/2023_03_10.loader.js"></script>
+    <script src="Build/2023_03_11.loader.js"></script>
     <script>
     const maxPixelRatioMobile = 2.0;
     const maxPixelRatioDesktop = 1.5;
@@ -162,11 +162,11 @@
     var pixelRatio = Math.min(window.devicePixelRatio, maxDevicePixelRatio);
 
     var buildUrl = "Build";
-    var loaderUrl = buildUrl + "/2023_03_10.loader.js";
+    var loaderUrl = buildUrl + "/2023_03_11.loader.js";
     var config = {
-      dataUrl: buildUrl + "/2023_03_10.data.unityweb",
-      frameworkUrl: buildUrl + "/2023_03_10.framework.js.unityweb",
-      codeUrl: buildUrl + "/2023_03_10.wasm.unityweb",
+      dataUrl: buildUrl + "/2023_03_11.data",
+      frameworkUrl: buildUrl + "/2023_03_11.framework.js",
+      codeUrl: buildUrl + "/2023_03_11.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "Nagare Games",
       productName: "AI Explorer",
@@ -188,6 +188,7 @@
         progressBar.style.width = 100 * progress + "%";
       }).then(function(unityInstance) {
         unityGame = unityInstance;
+        window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
           UnityLogo.style.display = "none";
 
@@ -196,6 +197,49 @@
       });
     };
     document.body.appendChild(script);
+
+
+    
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-storage-compat.js"></script>
+
+    <script type="module">
+        // // Import the functions you need from the SDKs you need
+        // import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js'
+    
+        // // Add Firebase products that you want to use
+        // import { getAuth } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js'
+        // import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
+        // import { getStorage } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-storage.js'
+    
+    
+        // Your web app's Firebase configuration
+        const firebaseApp = firebase.initializeApp({
+            apiKey: "AIzaSyAGAbz5eDxUlpWS5lfcy0Tq9VIyA7kbOss",
+            authDomain: "ai-explorer2023.firebaseapp.com",
+            databaseURL: "https://ai-explorer2023-default-rtdb.firebaseio.com",
+            projectId: "ai-explorer2023",
+            storageBucket: "ai-explorer2023.appspot.com",
+            messagingSenderId: "126855111356",
+            appId: "1:126855111356:web:07b69b09aa75922dc366b9"
+        });
+    
+        // Initialize Firebase
+
+        const db = firebaseApp.firestore();
+	    const auth = firebaseApp.auth();
+        const storage = firebaseApp.storage();
+
+
+
+        // const app = initializeApp(firebaseConfig);
+        // const db = getFirestore(app);
+        // const auth = getAuth(app);
+        // const storage = getStorage(app);
     </script>
 </body>
 
