@@ -1,3 +1,3 @@
 # webglJavascript
  
-https://jonathanurosa.github.io/webglJavascript/
+https://kuripl.github.io/Metaverse-Creator/
