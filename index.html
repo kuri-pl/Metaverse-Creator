@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -59,6 +59,18 @@
             background-color: #FFFFFF;
             border-radius: 10px;
             transition: 400ms linear;
+        }
+        #bottom-image {
+        position: absolute;
+        bottom: 10%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        }
+
+        #bottom-image img {
+        max-width: 25%;
+        height: auto;
         }
 
         @media screen and (max-width:1100px
@@ -148,10 +160,13 @@
 <body>
     <canvas id="unity-canvas"></canvas>
     <div id="unity-logo"><img src="Logo Loading 01.gif"></div>
+    <div id="bottom-image"><img src="PoweredByBlockadeLabs.png"></div>
     <div id="unity-loading-bar">
         <div id="unity-progress-bar">
         </div>
     </div>
+    
+    
     <script src="Build/2023_03_11.loader.js"></script>
     <script>
     const maxPixelRatioMobile = 2.0;
@@ -178,6 +193,7 @@
     var loadingBar = document.querySelector("#unity-loading-bar");
     var progressBar = document.querySelector("#unity-progress-bar");
     var UnityLogo = document.querySelector("#unity-logo");
+    var bottomImage = document.querySelector("#bottom-image");
         
 
     var unityGame; // This can be used to access the application with .SendMessage() commands
@@ -191,6 +207,7 @@
         window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
           UnityLogo.style.display = "none";
+          bottomImage.style.display = "none";
 
       }).catch(function(message) {
         alert(message);
